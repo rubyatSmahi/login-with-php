@@ -1,0 +1,501 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+section {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+section .bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+}
+
+section .trees {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 100;
+  pointer-events: none;
+}
+
+section .girl {
+  position: absolute;
+  scale: 0.65;
+  pointer-events: none;
+  animation: animateGirl 10s linear infinite;
+}
+
+@keyframes animateGirl {
+  0% {
+    transform: translateX(calc(100% + 100vw));
+  }
+  50% {
+    transform: translateX(calc(-100% - 100vw));
+  }
+  50.01% {
+    transform: translateX(calc(-100% - 100vw)) rotateY(180deg);
+  }
+  100% {
+    transform: translateX(calc(100% + 100vw)) rotateY(180deg);
+  }
+}
+
+.auth-wrapper {
+  position: relative;
+  width: min(500px, calc(100vw - 40px));
+  min-height: 620px;
+  margin: 0 auto;
+}
+
+.auth-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(15px);
+  border: 1px solid #fff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    visibility 0.35s ease;
+}
+
+.login-card {
+  padding: 50px 40px;
+  gap: 30px;
+}
+
+.register-card {
+  padding: 36px 26px 30px;
+  gap: 12px;
+  width: min(440px, 100%);
+  max-width: 100%;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+}
+
+.auth-card .field-group select {
+  width: 100%;
+  padding: 15px 20px;
+  outline: none;
+  font-size: 1.25em;
+  color: #8f2c24;
+  border-radius: 5px;
+  background: #fff;
+  border: none;
+  margin-bottom: 20px;
+  appearance: none;
+}
+
+.auth-card h2 {
+  position: relative;
+  width: 100%;
+  text-align: center;
+  font-size: 2.5em;
+  font-weight: 600;
+  color: #8f2c24;
+  margin-bottom: 10px;
+}
+
+.auth-card .field-group {
+  position: relative;
+}
+
+.auth-card .field-group input {
+  position: relative;
+  width: 100%;
+  padding: 15px 20px;
+  outline: none;
+  font-size: 1.25em;
+  color: #8f2c24;
+  border-radius: 5px;
+  background: #fff;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.register-card h2 {
+  font-size: 2.1em;
+  margin-bottom: 5px;
+}
+
+.register-card .field-group input,
+.register-card .field-group select {
+  padding: 12px 14px;
+  font-size: 1.05em;
+  margin-bottom: 12px;
+}
+
+.register-card .form-links {
+  justify-content: center;
+  margin-top: 4px;
+}
+
+.register-card .form-links a {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.auth-card .field-group::placeholder {
+  color: #8f2c24;
+}
+
+.auth-card .field-group #login-submit,
+.auth-card .field-group #register-submit {
+  position: relative;
+  border: none;
+  outline: none;
+  background: #8f2c24;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.25em;
+  font-weight: 500;
+  transition: 0.5s;
+}
+
+.auth-card .field-group #login-submit:hover,
+.auth-card .field-group #register-submit:hover {
+  background: #d64c42;
+}
+
+.form-message {
+  margin-top: -8px;
+  margin-bottom: 12px;
+  padding: 8px 10px;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.form-message.error {
+  color: #991b1b;
+}
+
+.form-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-links a {
+  font-size: 1.25em;
+  color: #8f2c24;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.form-links a:nth-child(2) {
+  text-decoration: none;
+}
+
+.dashboard {
+  position: relative;
+  left: auto;
+  top: auto;
+  transform: none;
+  width: min(1100px, calc(100vw - 40px));
+  max-height: 85vh;
+  overflow: auto;
+  padding: 40px 30px;
+  margin: 0 auto;
+  gap: 24px;
+  backdrop-filter: blur(15px);
+}
+
+.dashboard h2,
+.dashboard h3 {
+  color: #8f2c24;
+  text-align: center;
+}
+
+.dashboard h2 {
+  font-size: 2.5em;
+}
+
+.welcome-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px;
+  text-align: center;
+}
+
+.welcome-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.welcome-text {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  color: #8f2c24;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: welcomeSlideIn 0.8s ease forwards;
+}
+
+.welcome-meta {
+  font-size: 1.1rem;
+  color: rgba(143, 44, 36, 0.9);
+  margin: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: welcomeSlideIn 0.9s ease 0.2s forwards;
+}
+
+@keyframes welcomeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dashboard-summary {
+  display: flex;
+  justify-content: center;
+}
+
+.summary-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 12px;
+  padding: 18px 26px;
+  width: min(340px, 100%);
+}
+
+.summary-box span {
+  color: #8f2c24;
+  font-weight: 600;
+}
+
+.summary-box strong {
+  font-size: 2rem;
+  color: #8f2c24;
+}
+
+.table-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.dash-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: rgba(255, 255, 255, 0.1);
+  color: #8f2c24;
+  min-width: 760px;
+}
+
+.dash-table th,
+.dash-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(143, 44, 36, 0.2);
+  text-align: left;
+}
+
+.dash-table thead th {
+  background: rgba(143, 44, 36, 0.12);
+  font-weight: 700;
+}
+
+.dash-table tbody tr:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.logout-btn {
+  position: relative;
+  border: none;
+  outline: none;
+  background: #8f2c24;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.25em;
+  font-weight: 500;
+  padding: 14px 28px;
+  border-radius: 5px;
+  transition: 0.5s;
+  align-self: center;
+  margin-top: 8px;
+}
+
+.logout-btn:hover {
+  background: #d64c42;
+}
+
+@media (max-width: 520px) {
+  .auth-wrapper {
+    width: min(100%, calc(100vw - 20px));
+  }
+
+  .login-card {
+    padding: 38px 20px;
+    gap: 18px;
+  }
+
+  .register-card {
+    padding: 26px 18px 20px;
+    gap: 10px;
+    width: min(100%, 360px);
+  }
+
+  .auth-card h2 {
+    font-size: 2em;
+  }
+
+  .register-card h2 {
+    font-size: 1.8em;
+  }
+
+  .form-links {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .form-links a {
+    font-size: 1rem;
+  }
+}
+
+.leaves {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.leaves .set {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.leaves .set div {
+  position: absolute;
+  display: block;
+}
+
+.leaves .set div:nth-child(1) {
+  left: 20%;
+  animation: animate 20s linear infinite;
+}
+
+.leaves .set div:nth-child(2) {
+  left: 50%;
+  animation: animate 14s linear infinite;
+}
+
+.leaves .set div:nth-child(3) {
+  left: 70%;
+  animation: animate 12s linear infinite;
+}
+
+.leaves .set div:nth-child(4) {
+  left: 5%;
+  animation: animate 15s linear infinite;
+}
+
+.leaves .set div:nth-child(5) {
+  left: 85%;
+  animation: animate 18s linear infinite;
+}
+
+.leaves .set div:nth-child(6) {
+  left: 90%;
+  animation: animate 12s linear infinite;
+}
+
+.leaves .set div:nth-child(7) {
+  left: 15%;
+  animation: animate 14s linear infinite;
+}
+
+.leaves .set div:nth-child(8) {
+  left: 60%;
+  animation: animate 15s linear infinite;
+}
+
+@keyframes animate {
+  0% {
+    opacity: 0;
+    top: -10%;
+    transform: translateX(20px) rotate(0deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(-20px) rotate(45deg);
+  }
+  40% {
+    transform: translateX(-20px) rotate(90deg);
+  }
+  60% {
+    transform: translateX(20px) rotate(180deg);
+  }
+  80% {
+    transform: translateX(-20px) rotate(45deg);
+  }
+  100% {
+    top: 110%;
+    transform: translateX(20px) rotate(225deg);
+  }
+}
