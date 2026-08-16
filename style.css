@@ -5,6 +5,21 @@
   font-family: "Poppins", sans-serif;
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  overscroll-behavior: none;
+  background: #0d1420;
+  background-image: url("bg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 section {
   position: relative;
   display: flex;
@@ -13,6 +28,7 @@ section {
   width: 100%;
   height: 100vh;
   overflow: hidden;
+  background: transparent;
 }
 
 section .bg {
@@ -34,28 +50,6 @@ section .trees {
   object-fit: cover;
   z-index: 100;
   pointer-events: none;
-}
-
-section .girl {
-  position: absolute;
-  scale: 0.65;
-  pointer-events: none;
-  animation: animateGirl 10s linear infinite;
-}
-
-@keyframes animateGirl {
-  0% {
-    transform: translateX(calc(100% + 100vw));
-  }
-  50% {
-    transform: translateX(calc(-100% - 100vw));
-  }
-  50.01% {
-    transform: translateX(calc(-100% - 100vw)) rotateY(180deg);
-  }
-  100% {
-    transform: translateX(calc(100% + 100vw)) rotateY(180deg);
-  }
 }
 
 .auth-wrapper {
@@ -214,6 +208,14 @@ section .girl {
   color: #8f2c24;
   font-weight: 500;
   text-decoration: none;
+  transition:
+    color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+.form-links a:hover {
+  color: #d64c42;
+  opacity: 0.9;
 }
 
 .form-links a:nth-child(2) {

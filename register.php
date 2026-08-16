@@ -66,10 +66,6 @@ if (!$stmt->execute()) {
     exit;
 }
 
-$_SESSION['user_id'] = (int) $conn->insert_id;
-$_SESSION['role'] = $role;
-$_SESSION['user_name'] = $name;
-
-$redirect = ($role === 'admin') ? 'admindashboard.php' : 'userdashboard.php';
-header('Location: ' . $redirect);
+$_SESSION['register_success'] = 'Registered successfully. Please log in.';
+header('Location: index.php');
 exit;

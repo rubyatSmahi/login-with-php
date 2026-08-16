@@ -19,12 +19,19 @@ if (isset($_SESSION['user_id'])) {
 
 $loginError = '';
 $registerError = '';
+$registerSuccess = '';
 $showRegister = false;
 
 if (isset($_SESSION['login_error'])) {
 	$loginError = $_SESSION['login_error'];
 	unset($_SESSION['login_error']);
 	$showRegister = false;
+}
+
+if (isset($_SESSION['register_success'])) {
+	$registerSuccess = $_SESSION['register_success'];
+	unset($_SESSION['register_success']);
+	$showRegister = true;
 }
 
 if (isset($_SESSION['register_error'])) {
@@ -57,7 +64,6 @@ if (isset($_SESSION['register_error'])) {
 			</div>
 		</div>
 		<img src="bg.jpg" class="bg">
-		<img src="girl.png" class="girl">
 		<img src="trees.png" class="trees">
 
 		<div class="auth-wrapper">
@@ -75,8 +81,7 @@ if (isset($_SESSION['register_error'])) {
 				<?php if (!empty($loginError)): ?>
 					<div class="form-message error"><?= htmlspecialchars($loginError) ?></div>
 				<?php endif; ?>
-				<div class="form-links">
-					<a href="#">Forget Password</a>
+				<div class="form-links" style="justify-content: flex-end;">
 					<a href="#" onclick="showForm('register'); return false;">Register</a>
 				</div>
 			</form>
@@ -113,6 +118,9 @@ if (isset($_SESSION['register_error'])) {
 				<div class="field-group">
 					<input type="submit" value="Register" id="register-submit">
 				</div>
+				<?php if (!empty($registerSuccess)): ?>
+					<div class="form-message success"><?= htmlspecialchars($registerSuccess) ?></div>
+				<?php endif; ?>
 				<?php if (!empty($registerError)): ?>
 					<div class="form-message error"><?= htmlspecialchars($registerError) ?></div>
 				<?php endif; ?>
